@@ -206,7 +206,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     private var toggleVehicles = -1
     private var toggleVNames = 1
     private var combatMode = -1
-    private var nameToggles = 1
+    private var nameToggles = 3
 
     private fun windowToMap(x: Float, y: Float) =
             Vector2(selfCoords.x + (x - windowWidth / 2.0f) * camera.zoom * windowToMapUnit + screenOffsetX,
