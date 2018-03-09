@@ -1,7 +1,6 @@
-# PUBG-Radar
-PUBG-Radar by sniffering udp packet
 
-Written in Kotlin
+![Memes](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/item-sprites.png?raw=true)
+
 
 # Changes
 * Get self player's location by parsing `CharMoveComp` RPC. So the player's direction is corrected now. 
@@ -13,8 +12,5 @@ Written in Kotlin
 * `Equipped weapons` are shown.
 * Clear `DroppedItem` and `DroppedItemGroup` when `picking up`.
 
-# Build
-Using [maven](https://maven.apache.org/)
 
-# Note
-You need to modify the code before playing game, or you will be banned by BE.
+# You need to modify the code before playing game, or you will be banned by BE.
