@@ -28,7 +28,7 @@
 #### Toggle Player Information
 
 * F7 -> Combat Mode (Hides Items, Corpses)
-* F8 -> Toggle Player Information
+* F8 -> Player Information Panel 1-4
 
 1. Distance, Name, Kills, Health, Weapons
 2. Distance, Name, Kills, Health
