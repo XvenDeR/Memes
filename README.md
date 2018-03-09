@@ -21,15 +21,14 @@
            
 #### Icon Toggles
 
-
-* F6 -> Toggle Vehicle Names 
-* F7 -> Toggle Vehicles
-* F8 -> Combat Mode 
+* F5 -> Toggle Vehicle Names 
+* F6 -> Toggle Vehicles
 * F11 -> Toggle View Line
 
 #### Toggle Player Information
 
-* F5 -> Toggle Player Information
+* F7 -> Combat Mode (Hides Items, Corpses)
+* F8 -> Toggle Player Information
 
 1. Distance, Name, Kills, Health, Weapons
 2. Distance, Name, Kills, Health

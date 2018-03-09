@@ -279,10 +279,10 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             NUMPAD_9 -> camera.zoom = 1 / 24f
 
         // Toggle Transparent Player Icons
-            F8 -> combatMode = combatMode * -1
-            F7 -> toggleVehicles = toggleVehicles * -1
+            F5 -> toggleVehicles = toggleVehicles * -1
             F6 -> toggleVNames = toggleVNames * -1
-            F5 -> {if (nameToggles < 5) {nameToggles += 1}
+            F7 -> combatMode = combatMode * -1
+            F8 -> {if (nameToggles < 5) {nameToggles += 1}
                    if (nameToggles == 5) {nameToggles = 1}
             }
 
@@ -578,13 +578,12 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             else
                 espFontShadow.draw(spriteBatch, "THROW", 200f, windowHeight - 25f)
             if (combatMode == 1)
-                espFont.draw(spriteBatch, "CM [F8]", 270f, windowHeight - 25f)
+                espFont.draw(spriteBatch, "CM [F7]", 270f, windowHeight - 25f)
             else {
-                espFontShadow.draw(spriteBatch, "CM [F8]", 270f, windowHeight - 25f)
+                espFontShadow.draw(spriteBatch, "CM [F7]", 270f, windowHeight - 25f)
             }
-
                 val num = nameToggles
-                espFontShadow.draw(spriteBatch, "$num [F5]", 270f, windowHeight - 42f)
+                espFontShadow.draw(spriteBatch, "$num  [F8]", 270f, windowHeight - 42f)
 
 
             val pinDistance = (pinLocation.cpy().sub(selfX, selfY).len() / 100).toInt()
