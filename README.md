@@ -27,6 +27,15 @@
 * F8 -> Combat Mode 
 * F11 -> Toggle View Line
 
+#### Toggle Player Information
+
+* F5 -> Toggle Player Information
+
+1. Distance, Name, Kills, Health, Weapons
+2. Distance, Name, Kills, Health
+3. Distance, Health, Weapons
+4. Distance, Health
+
 #### Zooms:
 * NUMPAD_7 -> Scouting
 * NUMPAD_8 -> Scout/Loot
