@@ -1,5 +1,5 @@
 # You need to modify this or you will be banned by BattleEye
-![Imgur](https://i.imgur.com/ZER1qBH.png)
+![Imgur](https://i.imgur.com/9yh84NO.png)
 ![Boat](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/boat.png?raw=true)
 ![Buggy](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/buggy.png?raw=true)
 ![Enemy](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/arrow.png?raw=true)
@@ -8,7 +8,31 @@
 ![Jetski](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/jetski.png?raw=true)
 ![Parachute](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/parachute.png?raw=true)
 
-![Memes](https://github.com/NoParamedic/Memes/blob/master/src/main/resources/images/item-sprites.png?raw=true)
+#### Item Filter:
+
+* HOME -> Show / Hide Compass
+* NUMPAD_0 -> Filter Throwables
+* NUMPAD_1 -> Filter Attachments
+* NUMPAD_2 -> Filter Scopes 
+* NUMPAD_3 -> Filter Ammo 
+* NUMPAD_4 -> Filter Weapons
+* NUMPAD_5 -> Filter Level 2 Gear          
+* NUMPAD_6 -> Filter Meds
+           
+#### Icon Toggles
+
+
+* F6 -> Toggle Vehicle Names 
+* F7 -> Toggle Vehicles
+* F8 -> Combat Mode 
+* F11 -> Toggle View Line
+
+#### Zooms:
+* NUMPAD_7 -> Scouting
+* NUMPAD_8 -> Scout/Loot
+* NUMPAD_9 -> Looting
+* F9 ->  Camera Zoom ++
+* F10 -> Camera Zoom --
 
 
 # Changes

@@ -205,6 +205,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     private var screenOffsetY = 0f
     private var toggleVehicles = -1
     private var toggleVNames = 1
+    private var combatMode = -1
 
     private fun windowToMap(x: Float, y: Float) =
             Vector2(selfCoords.x + (x - windowWidth / 2.0f) * camera.zoom * windowToMapUnit + screenOffsetX,
@@ -277,6 +278,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             NUMPAD_9 -> camera.zoom = 1 / 24f
 
         // Toggle Transparent Player Icons
+            F8 -> combatMode = combatMode * -1
             F7 -> toggleVehicles = toggleVehicles * -1
             F6 -> toggleVNames = toggleVNames * -1
 
@@ -570,6 +572,14 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
                 espFont.draw(spriteBatch, "THROW", 200f, windowHeight - 25f)
             else
                 espFontShadow.draw(spriteBatch, "THROW", 200f, windowHeight - 25f)
+            if (combatMode == 1)
+                espFont.draw(spriteBatch, "CM [F8]", 270f, windowHeight - 25f)
+            else
+                espFontShadow.draw(spriteBatch, "CM [F8]", 270f, windowHeight - 25f)
+            if (toggleVNames != 1)
+                espFont.draw(spriteBatch, "VN [F6]", 270f, windowHeight - 42f)
+            else
+                espFontShadow.draw(spriteBatch, "VN [F6]", 270f, windowHeight - 42f)
 
 
             val pinDistance = (pinLocation.cpy().sub(selfX, selfY).len() / 100).toInt()
@@ -651,7 +661,8 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
 
         val iconScale = 2f / camera.zoom
         paint(itemCamera.combined) {
-
+            when {
+                combatMode != 1 ->
             droppedItemLocation.values
                     .forEach {
                         val (x, y) = it._1
@@ -670,9 +681,12 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
                                         iconScale, iconScale)
                             }
                         }
-                    }
+                    }}
 
             //Draw Corpse Icon
+
+            when {
+                combatMode != 1 ->
             corpseLocation.values.forEach {
                 val (x, y) = it
                 val (sx, sy) = Vector2(x + 16, y - 16).mapToWindow()
@@ -681,7 +695,9 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
                 spriteBatch.draw(corpseboximage, sx - iconScale / 2, syFix + iconScale / 2, iconScale, -iconScale,
                         0, 0, 64, 64,
                         false, true)
-            }
+            }}
+
+
             //Draw Airdrop Icon
             airDropLocation.values.forEach {
                 val (x, y) = it
@@ -1148,6 +1164,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     }
 
     fun drawPlayerNames(players: MutableList<renderInfo>?, selfX: Float, selfY: Float) {
+
         players?.forEach {
             val (actor, x, y, _) = it
             actor!!
@@ -1170,10 +1187,21 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
                     weapon += "|"+ result[2].substring(4) + "\n"
                 }
             }
-            nameFont.draw(spriteBatch, "${distance}m\n" +
-                    "|N:$name\n" +
-                    "|K:$numKills || H:${df.format(health)}]\n" +
-                    "$weapon", sx + 20, windowHeight - sy + 20)
+            when {
+                combatMode != 1 -> {
+                    nameFont.draw(spriteBatch, "${distance}m\n" +
+                            "|N:$name\n" +
+                            "|K:$numKills || H:${df.format(health)}]\n" +
+                            "$weapon", sx + 20, windowHeight - sy + 20)
+                }
+                combatMode == 1 -> {
+
+                    nameFont.draw(spriteBatch, "${distance}m\n" +
+                            "Health:${df.format(health)}\n", sx + 20, windowHeight - sy + 20)
+                }
+        }
+
+
         }
     }
 
