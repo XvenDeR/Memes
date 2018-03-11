@@ -1,12 +1,12 @@
 # You need to modify this or you will be banned by BattleEye
 ![Imgur](https://i.imgur.com/9yh84NO.png)
-![Boat](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/boat.png?raw=true)
-![Buggy](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/buggy.png?raw=true)
-![Enemy](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/arrow.png?raw=true)
-![Player](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/player.png?raw=true)
-![Nade](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/grenade.png?raw=true)
-![Jetski](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/jetski.png?raw=true)
-![Parachute](https://github.com/XvenDeR/Memes/tree/master/src/main/resources/images/parachute.png?raw=true)
+![Boat](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/boat.png?raw=true)
+![Buggy](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/buggy.png?raw=true)
+![Enemy](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/arrow.png?raw=true)
+![Player](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/player.png?raw=true)
+![Nade](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/grenade.png?raw=true)
+![Jetski](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/jetski.png?raw=true)
+![Parachute](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/parachute.png?raw=true)
 
 #### Item Filter:
 
