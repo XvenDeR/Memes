@@ -7,7 +7,7 @@
 ![Player](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/player.png?raw=true)
 ![Nade](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/grenade.png?raw=true)
 ![Jetski](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/jetski.png?raw=true)
-![Parachute](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/parachute.png?raw=true)
+![Parachute](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/parachute64.png?raw=true)
 
 #### Item Filter:
 
