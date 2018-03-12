@@ -206,7 +206,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     private var toggleVehicles = -1
     private var toggleVNames = 1
     private var combatMode = -1
-    private var nameToggles = 3
+    private var nameToggles = 1
 
     private fun windowToMap(x: Float, y: Float) =
             Vector2(selfCoords.x + (x - windowWidth / 2.0f) * camera.zoom * windowToMapUnit + screenOffsetX,
@@ -578,12 +578,12 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             else
                 espFontShadow.draw(spriteBatch, "THROW", 200f, windowHeight - 25f)
             if (combatMode == 1)
-                espFont.draw(spriteBatch, "CM [F7]", 270f, windowHeight - 25f)
+                espFont.draw(spriteBatch, "COMBAT MODE", 270f, windowHeight - 25f)
             else {
-                espFontShadow.draw(spriteBatch, "CM [F7]", 270f, windowHeight - 25f)
+                espFontShadow.draw(spriteBatch, "COMBAT MODE", 270f, windowHeight - 25f)
             }
                 val num = nameToggles
-                espFontShadow.draw(spriteBatch, "$num  [F8]", 270f, windowHeight - 42f)
+                espFontShadow.draw(spriteBatch, "INFO PANEL - $num", 270f, windowHeight - 42f)
 
 
             val pinDistance = (pinLocation.cpy().sub(selfX, selfY).len() / 100).toInt()
@@ -1192,29 +1192,35 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
                 }
             }
             when (nameToggles) {
-                1 -> {
-                    nameFont.draw(spriteBatch, "${distance}m\n" +
-                            "|N:$name\n" +
-                            "|K:$numKills || H:${df.format(health)}\n" +
-                            "$weapon", sx + 20, windowHeight - sy + 20)
-                }
-                2 -> {
-                    nameFont.draw(spriteBatch, "${distance}m\n" +
-                            "|N:$name\n" +
-                            "|K:$numKills || H:${df.format(health)}"
-                            ,
-                            sx + 20, windowHeight - sy + 20)
-                }
-                3 -> {
-                    nameFont.draw(spriteBatch, "${distance}m | H:${df.format(health)}]\n" +
-                            "$weapon", sx + 20, windowHeight - sy + 20)
-                }
-                4 -> {
 
-                    nameFont.draw(spriteBatch, "${distance}m\n" +
-                            "Health:${df.format(health)}\n", sx + 20, windowHeight - sy + 20)
-                }
-            }
+                        1 -> {
+                            nameFont.draw(spriteBatch,
+                                    "${distance}m\n" +
+                                            "|N: $name\n" +
+                                            "|H: ${df.format(health)}\n" +
+                                            "|K: ($numKills" +
+                                            "|W: $weapon",
+                                    sx + 20, windowHeight - sy + 20)
+                        }
+                        2 -> {
+                            nameFont.draw(spriteBatch, "${distance}m\n" +
+                                    "|N: $name\n" +
+                                    "|H: ${df.format(health)}" +
+                                    "|W: $weapon",
+                                    sx + 20, windowHeight - sy + 20)
+                        }
+                        3 -> {
+                            nameFont.draw(spriteBatch, 
+							"|N: $name\n|D: ${distance}m\n", sx + 20, windowHeight - sy + 20)
+                        }
+                        4 -> {
+                            nameFont.draw(spriteBatch, "|N: $name\n|D: ${distance}m\n" +
+                                    "|H: ${df.format(health)}\n" +
+                                    "|W: $weapon",
+                                    sx + 20, windowHeight - sy + 20)
+
+                        }
+                    }
 
 
         }
