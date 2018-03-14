@@ -5,7 +5,6 @@ import pubg.radar.GameListener
 import pubg.radar.register
 import pubg.radar.struct.Actor
 import pubg.radar.struct.Bunch
-import pubg.radar.struct.NetGuidCacheObject
 import pubg.radar.struct.cmd.CMD.propertyBool
 import pubg.radar.struct.cmd.CMD.propertyByte
 import pubg.radar.struct.cmd.CMD.propertyFloat
@@ -59,7 +58,7 @@ object GameStateCMD : GameListener {
     var NumAlivePlayers = 0
     var NumAliveTeams = 0
 
-    fun process(actor: Actor, bunch: Bunch, repObj: NetGuidCacheObject?, waitingHandle: Int, data: HashMap<String, Any?>): Boolean {
+    fun process(actor: Actor, bunch: Bunch, waitingHandle: Int): Boolean {
         with(bunch) {
             when (waitingHandle) {
                 16 -> {
@@ -110,13 +109,14 @@ object GameStateCMD : GameListener {
                     val bTimerPaused = propertyBool()
                     val b = bTimerPaused
                 }
-                30 -> {
-                    NumJoinPlayers = propertyInt()
-                }
+            //   30 -> {
+            //      NumJoinPlayers = propertyInt() // old
+            //  }
                 31 -> {
                     NumAlivePlayers = propertyInt()
                 }
                 32 -> {
+                    NumJoinPlayers = propertyInt()
                     val NumAliveZombiePlayers = propertyInt()
                     val b = NumAliveZombiePlayers
                 }

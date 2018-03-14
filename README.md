@@ -42,14 +42,3 @@
 * NUMPAD_9 -> Looting
 * F9 ->  Camera Zoom ++
 * F10 -> Camera Zoom --
-
-
-# Changes
-* Get self player's location by parsing `CharMoveComp` RPC. So the player's direction is corrected now.
-* Get item's relative locaiton by `DroppedItemInteractionComponent`. So the item location is corrected now.
-* Change `readRotator()` to `readRotationShort()` fixes empty player state.
-* `DroppedItem` is shown.
-* Fully parse `ATslCharacter`. So player health is shown.
-* Correct player color when driving.
-* `Equipped weapons` are shown.
-* Clear `DroppedItem` and `DroppedItemGroup` when `picking up`.

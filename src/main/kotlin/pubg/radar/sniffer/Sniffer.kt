@@ -135,8 +135,8 @@ class Sniffer {
                         val ip = packet[IpPacket::class.java]
                         val udp = udp_payload(packet) ?: return@loop
                         val raw = udp.payload.rawData
-                        if (udp.header.dstPort.valueAsInt() in 7000..7999)
-                            proc_raw_packet(raw, false)
+                        if (raw.size == 44)
+                            parseSelfLocation(raw)
                         else if (udp.header.srcPort.valueAsInt() in 7000..7999)
                             proc_raw_packet(raw)
                     } catch (e: Exception) {
@@ -156,8 +156,8 @@ class Sniffer {
                             val packet = handle.nextPacket ?: break
                             val udp = udp_payload(packet) ?: continue
                             val raw = udp.payload.rawData
-                            if (udp.header.dstPort.valueAsInt() in 7000..7999)
-                                proc_raw_packet(raw, false)
+                            if (raw.size == 44)
+                                parseSelfLocation(raw)
                             else if (udp.header.srcPort.valueAsInt() in 7000..7999)
                                 proc_raw_packet(raw)
                         } catch (e: IndexOutOfBoundsException) {
@@ -165,7 +165,7 @@ class Sniffer {
                         } catch (e: NotOpenException) {
                             break
                         }
-                        Thread.sleep(2)
+                        Thread.sleep(1)
                     }
                 }
             }

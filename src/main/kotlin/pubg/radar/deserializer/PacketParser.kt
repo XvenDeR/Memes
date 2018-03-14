@@ -13,10 +13,6 @@ import pubg.radar.info
 import pubg.radar.infoln
 import pubg.radar.struct.Bunch
 
-fun Int.d(w: Int): String {
-    return String.format("%${w}d", this)
-}
-
 fun proc_raw_packet(raw: ByteArray, client: Boolean = true) {
     val reader = Buffer(raw)
     reader.proc_raw_packet(client)
@@ -54,6 +50,7 @@ fun Buffer.proc_raw_packet(client: Boolean) {
         val bIsReplicationPaused = readBit()
         val bReliable = readBit()
         val chIndex = readInt(MAX_CHANNELS)
+        readBit() // This is what broke the radar
         val bHasPackageMapExports = readBit()
         val bHasMustBeMappedGUIDs = readBit()
         val bPartial = readBit()
@@ -109,14 +106,12 @@ fun Buffer.proc_raw_packet(client: Boolean) {
                     channels[chIndex] = ControlChannel(chIndex, client)
                 }
                 CHTYPE_VOICE, CHTYPE_FILE -> {
-
                 }
                 else -> {
                     bugln { "create chIndex=$chIndex,chSequence=$chSequence,chType=$chType" }
                     if (chType == CHTYPE_NONE)
                         println("$chSequence lost the first actor creation bunch. just create as we need it.")
-                    inChannels[chIndex] = ActorChannel(chIndex, true)
-                    outChannels[chIndex] = ActorChannel(chIndex, false)
+                    channels[chIndex] = ActorChannel(chIndex, client)
                 }
             }
         }

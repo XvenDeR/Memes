@@ -5,7 +5,6 @@ import pubg.radar.bugln
 import pubg.radar.register
 import pubg.radar.struct.Actor
 import pubg.radar.struct.Bunch
-import pubg.radar.struct.NetGuidCacheObject
 import pubg.radar.struct.cmd.CMD.propertyString
 import pubg.radar.struct.cmd.CMD.propertyVector100
 import java.util.concurrent.ConcurrentHashMap
@@ -21,7 +20,7 @@ object TeamCMD : GameListener {
         team.clear()
     }
 
-    fun process(actor: Actor, bunch: Bunch, repObj: NetGuidCacheObject?, waitingHandle: Int, data: HashMap<String, Any?>): Boolean {
+    fun process(actor: Actor, bunch: Bunch, waitingHandle: Int): Boolean {
         with(bunch) {
             //      println("${actor.netGUID} $waitingHandle")
             when (waitingHandle) {

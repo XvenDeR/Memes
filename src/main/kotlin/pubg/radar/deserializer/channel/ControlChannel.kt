@@ -11,7 +11,7 @@ class ControlChannel(ChIndex: Int, client: Boolean = true) : Channel(ChIndex, CH
     override fun ReceivedBunch(bunch: Bunch) {
         val messageType = bunch.readUInt8()
         when (messageType) {
-            NMT_Welcome -> {// server tells client they're ok'ed to load the server's level
+            NMT_Welcome -> { // server tells client they're ok'ed to load the server's level
                 val map = bunch.readString()
                 val gameMode = bunch.readString()
                 val unknown = bunch.readString()
@@ -20,7 +20,6 @@ class ControlChannel(ChIndex: Int, client: Boolean = true) : Channel(ChIndex, CH
                 println("Welcome To ${if (isErangel) "Erangel" else "Miramar"}")
             }
             else -> {
-
             }
         }
     }

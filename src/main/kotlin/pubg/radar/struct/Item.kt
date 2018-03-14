@@ -80,8 +80,7 @@ class Item {
                         "Vector" to "Vector",
                         "Pan" to "Pan",
                         "SawnOff" to "SawnOff",
-                        "UZI" to "UZI",
-                        "G1B" to "G1B"
+                        "UZI" to "UZI"
                 ),
                 "Ammo" to mapOf(
                         "9mm" to "9mm",

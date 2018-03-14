@@ -51,7 +51,6 @@ open class Buffer(
     }
 
     fun notEnd() = bitsLeft() > 0
-    fun atEnd() = bitsLeft() <= 0
     fun bitsLeft(): Int = totalBits
     fun numBytes(): Int = (bitsLeft() + 7) shl 3
 
@@ -86,11 +85,11 @@ open class Buffer(
         return value.toInt() and 0xFF
     }
 
-    fun readBytes(sizeBytes: Int = 1): ByteArray {
+    private fun readBytes(sizeBytes: Int = 1): ByteArray {
         return readBits(sizeBytes * 8)
     }
 
-    fun readBits(sizeBits: Int = 8): ByteArray {
+    private fun readBits(sizeBits: Int = 8): ByteArray {
         val value = ByteArray((sizeBits + 7) ushr 3)//ceil(sizeBits / 8.0)
         for (i in 0 until sizeBits)
             if (readBit()) {
@@ -123,16 +122,8 @@ open class Buffer(
         return value
     }
 
-    fun readInt8(): Int {
-        return readByte().toByte().toInt()
-    }
-
     fun readUInt8(): Int {
         return readByte()
-    }
-
-    fun readInt16(): Int {
-        return readUInt16().toShort().toInt()
     }
 
     fun readUInt16(): Int {
@@ -154,13 +145,6 @@ open class Buffer(
         value = value or (readByte().toLong() shl 40)
         value = value or (readByte().toLong() shl 48)
         value = value or (readByte().toLong() shl 56)
-        return value
-    }
-
-    fun readInt24(): Int {
-        var value = readByte()
-        value = value or (readByte() shl 8)
-        value = value or (readByte() shl 16)
         return value
     }
 
@@ -208,16 +192,6 @@ open class Buffer(
         }
     }
 
-    fun skipNetFieldExport() {
-        val Flags = readUInt8()
-        if (Flags == 1) {
-            readIntPacked()
-            readUInt32()
-            readString()
-            readString()
-        }
-    }
-
     fun readObject(): ObjectPtr {
         val netGUID = readNetworkGUID()
         var obj: NetGuidCacheObject? = null
@@ -225,7 +199,7 @@ open class Buffer(
         if (netGUID.isValid() && !netGUID.isDefault())
             obj = guidCache.getObjectFromNetGUID(netGUID)
 
-        if (netGUID.isDefault() || guidCache.isExportingNetGUIDBunch) {//NetGUID.IsDefault() || GuidCache->radar.radar.deserializer.getIsExportingNetGUIDBunch
+        if (netGUID.isDefault() || guidCache.isExportingNetGUIDBunch) { //NetGUID.IsDefault() || GuidCache->radar.radar.deserializer.getIsExportingNetGUIDBunch
             val exportFlags = ExportFlags(readUInt8())
             if (exportFlags.bHasPath) {
                 val (outerGUID, outerObj) = readObject()
@@ -233,7 +207,7 @@ open class Buffer(
                 val networkChecksum = if (exportFlags.bHasNetworkChecksum) readUInt32().toInt() else 0
                 val bIsPackage = netGUID.isStatic() && !outerGUID.isValid()
                 if (obj != null) return Pair(netGUID, obj)
-                if (netGUID.isDefault()) {//assign guid
+                if (netGUID.isDefault()) { //assign guid
                     return Pair(netGUID, obj)
                 }
 
@@ -264,12 +238,12 @@ open class Buffer(
                     readFixedCompressedFloat(maxValue, numBits),
                     readFixedCompressedFloat(maxValue, numBits))
 
-    fun readFixedCompressedFloat(maxValue: Int, numBits: Int): Float {
+    private fun readFixedCompressedFloat(maxValue: Int, numBits: Int): Float {
         val maxBitValue = (1 shl (numBits - 1)) - 1//0111 1111 - Max abs value we will serialize
         val bias = 1 shl (numBits - 1)//1000 0000 - Bias to pivot around (in order to support signed values)
         val serIntMax = 1 shl (numBits - 0)// 1 0000 0000 - What we pass into SerializeInt
         val maxDelta = (1 shl (numBits - 0)) - 1//   1111 1111 - Max delta is
-        val delta = readInt(serIntMax)
+        val delta = readUInt32()
         val unscaledValue = (delta - bias).toFloat()
         return if (maxValue > maxBitValue) {
             val invScale = maxValue / maxBitValue.toFloat()
@@ -283,8 +257,8 @@ open class Buffer(
 
     fun readRotationShort(): Vector3 {
         return Vector3(
-                (if (readBit()) readUInt16() else 0) * shortRotationScale,//pitch
-                (if (readBit()) readUInt16() else 0) * shortRotationScale,//yaw
+                (if (readBit()) readUInt16() else 0) * shortRotationScale, //pitch
+                (if (readBit()) readUInt16() else 0) * shortRotationScale, //yaw
                 (if (readBit()) readUInt16() else 0) * shortRotationScale//roll
         )
     }
@@ -320,5 +294,4 @@ open class Buffer(
         if (bits > 0)
             throw IndexOutOfBoundsException()
     }
-
 }
