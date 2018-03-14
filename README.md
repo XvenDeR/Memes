@@ -22,7 +22,7 @@
 #### Icon Toggles
 * F5 -> Toggle Vehicle Names
 * F6 -> Toggle Vehicles
-* F11 -> Toggle View Line ![View Line](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/red_view_line.png?raw=true)
+* F11 -> Toggle View Line
 
 #### Zooms:
 * NUMPAD_7 -> Scouting
