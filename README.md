@@ -10,23 +10,24 @@
 ![Parachute](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/parachute64.png?raw=true)
 
 #### Item Filter:
-* HOME -> Show / Hide Compass
-* NUMPAD_0 -> Filter Throwables
-* NUMPAD_1 -> Filter Attachments
-* NUMPAD_2 -> Filter Scopes
-* NUMPAD_3 -> Filter Ammo
-* NUMPAD_4 -> Filter Weapons
-* NUMPAD_5 -> Filter Level 2 Gear          
-* NUMPAD_6 -> Filter Meds
+* Home -> Show / Hide Compass
+* Num 0 -> Filter Throwables
+* Num 1 -> Filter Attachments
+* Num 2 -> Filter Scopes
+* Num 3 -> Filter Ammo
+* Num 4 -> Filter Weapons
+* Num 5 -> Filter Level 2 Gear          
+* Num 6 -> Filter Meds
 
 #### Icon Toggles
 * F5 -> Toggle Vehicle Names
 * F6 -> Toggle Vehicles
 * F11 -> Toggle View Line
+* Insert -> Grid
 
 #### Zooms:
-* NUMPAD_7 -> Scouting
-* NUMPAD_8 -> Scout/Loot
-* NUMPAD_9 -> Looting
+* Num 7 -> Scouting
+* Num 8 -> Scout/Loot
+* Num 9 -> Looting
 * F9 ->  Camera Zoom ++
 * F10 -> Camera Zoom --
