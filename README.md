@@ -1,7 +1,7 @@
-# You need to modify this or you will be banned by BattleEye
+# Radar
 ![Imgur](https://i.imgur.com/9yh84NO.png)
 
-![Boat](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/boat.png?raw=true)
+![Vehicle](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/vehicle.png?raw=true)
 ![Buggy](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/buggy.png?raw=true)
 ![Enemy](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/arrow.png?raw=true)
 ![Player](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/player.png?raw=true)
@@ -10,7 +10,6 @@
 ![Parachute](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/parachute64.png?raw=true)
 
 #### Item Filter:
-
 * HOME -> Show / Hide Compass
 * NUMPAD_0 -> Filter Throwables
 * NUMPAD_1 -> Filter Attachments
@@ -21,20 +20,9 @@
 * NUMPAD_6 -> Filter Meds
 
 #### Icon Toggles
-
 * F5 -> Toggle Vehicle Names
 * F6 -> Toggle Vehicles
-* F11 -> Toggle View Line
-
-#### Toggle Player Information
-
-* F7 -> Combat Mode (Hides Items, Corpses)
-* F8 -> Player Information Panel 1-4
-
-1. Distance, Name, Kills, Health, Weapons
-2. Distance, Name, Kills, Health
-3. Distance, Health, Weapons
-4. Distance, Health
+* F11 -> Toggle View Line ![View Line](https://github.com/XvenDeR/Memes/blob/master/src/main/resources/images/red_view_line.png?raw=true)
 
 #### Zooms:
 * NUMPAD_7 -> Scouting
